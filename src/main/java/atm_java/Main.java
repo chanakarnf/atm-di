@@ -1,13 +1,15 @@
-package atm;
+package atm_java;
 
+import config.ATMconfig;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Main {
     public static void main(String[] args) {
-        ApplicationContext context =
-                new ClassPathXmlApplicationContext("config.xml");
-        ATMSimulator atmSimulator = context.getBean("atmSimulator", ATMSimulator.class);
+        AnnotationConfigApplicationContext context =
+                new AnnotationConfigApplicationContext(ATMconfig.class);
+        ATMSimulator atmSimulator = context.getBean(ATMSimulator.class);
         atmSimulator.run();
         //
 //        DataSource dataSource = new DataSource("customers.txt");

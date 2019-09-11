@@ -5,12 +5,12 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
             http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="dataSource" class="atm.DataSource">
+    <bean id="readFromFile" class="atm.DataSource">
         <constructor-arg value="customers.txt"/>
     </bean>
 
     <bean id="bank" class="atm.Bank">
-        <constructor-arg ref="dataSource"/>
+        <constructor-arg ref="readFromFile"/>
     </bean>
     <bean id="atm" class="atm.ATM">
         <constructor-arg ref="bank"/>
@@ -18,8 +18,5 @@
     <bean id="atmSimulator" class="atm.ATMSimulator">
         <constructor-arg ref="atm"/>
     </bean>
-<!--    <bean id="register" class="th.ku.cashregister.CashRegister">-->
-<!--        <constructor-arg value="CA"/>-->
-<!--        <constructor-arg ref="CATax"/>-->
-<!--    </bean>-->
+
 </beans>
