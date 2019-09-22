@@ -1,4 +1,4 @@
-package atm_database;
+package atm_JDBC;
 
 
 
